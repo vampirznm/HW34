@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Title</title>
+    <link rel="icon" type="image/png" th:href="@{/pngwing.com (1).png}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--<div th:replace="~{navigation :: navi(Shop)}"></div>-->
+<div class="container">
+    <br>
+    <br>
+    <br>Version 1
+    <h1>Books store</h1>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>№</th>
+            <th>Cover</th>
+            <th>Name of the book</th>
+            <th>Author</th>
+            <th>Publication year</th>
+            <th>Number of pages</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="thead-light" th:each="book,stat: ${books}">
+            <td th:text="${stat.index+1}"></td>
+            <td>
+                <img th:src="@{pngwing.com (1).png}"
+                     class="card img-fluid" style="width:50px; height:50px;" alt="" src=""/>
+            </td>
+            <td th:text="${book.getBookName()}"></td>
+            <td th:text="${book.getAuthorid.getAuthorName()}"></td>
+            <td th:text="${book.getReleaseYear()}"></td>
+            <td th:text="${book.getPagesNumber()}"></td>
+            <td th:text="${book.getCost()}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>
